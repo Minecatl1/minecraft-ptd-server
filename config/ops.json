@@ -1,0 +1,14 @@
+[
+  {
+    "uuid": "00000000-0000-0000-0000-000000000000",  
+    "name": "Minecatl2013",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  },
+  {
+    "uuid": "00000000-0000-0000-0000-000000000000",  
+    "name": "BE_Minecatl2013",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  }
+]

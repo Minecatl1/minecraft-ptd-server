@@ -1,0 +1,29 @@
+# Floodgate configuration
+auth:
+  # The auth type can be either "online" or "offline"
+  # Online mode requires encryption and works with online-mode=true
+  # Offline mode works with online-mode=false
+  type: offline
+
+player-link:
+  enabled: true
+  require-link: false
+  code-expires-in: 5
+
+send-floodgate-data: true
+
+command-white-list:
+  enabled: false
+  commands:
+    - "help"
+    - "list"
+
+username-prefix: "BE_"
+replace-spaces: true
+disable-prefix: false
+
+auto-login: true
+
+metrics:
+  enabled: false
+  uuid: "your-unique-id-here"

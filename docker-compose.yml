@@ -10,7 +10,7 @@ services:
       - EULA=TRUE
     volumes:
       - ./world:/server/world
-      - ./config:/server/config
+      - ./config:/server/config  # This now includes server.properties
       - ./mods:/server/mods
       - ./resource_packs:/server/resource_packs
       - ./behavior_packs:/server/behavior_packs
