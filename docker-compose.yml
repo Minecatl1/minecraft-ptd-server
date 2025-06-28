@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  minecraft:
+    build:
+      context: .
+      args:
+        MC_VERSION: 1.21.1
+        NEOFORGE_VERSION: 21.1.186
+    image: codespace/minecraft-neoforge:1.21.1
+    container_name: codespace-minecraft
+    restart: unless-stopped
+    environment:
+      - MIN_RAM=4G
+      - MAX_RAM=8G
+      - EULA=TRUE
+    volumes:
+      - ./world:/server/world
+      - ./config:/server/config
+      - ./mods:/server/mods
+      - ./resource_packs:/server/resource_packs
+      - ./behavior_packs:/server/behavior_packs
+    ports:
+      - "25565:25565/tcp"
+      - "19132:19132/udp"
+      - "24454:24454/udp"
+    tty: true
+    stdin_open: true
