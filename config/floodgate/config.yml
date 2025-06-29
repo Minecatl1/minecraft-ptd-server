@@ -13,10 +13,13 @@ player-link:
 send-floodgate-data: true
 
 command-white-list:
-  enabled: false
+  enabled: true
   commands:
     - "help"
     - "list"
+    - "msg"
+    - "tell"
+    - "whisper"
 
 username-prefix: "BE_"
 replace-spaces: true
