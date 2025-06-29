@@ -1,6 +1,7 @@
 @echo off
 :: Minecraft NeoForge Server Setup for Windows
-:: Includes Create, Pixelmon, ModernFix + Bedrock Support
+:: Includes: Create, Pixelmon, ModernFix, WorldEdit, JEI
+:: Xbox support via phone bridge
 
 :: Configuration
 set MC_VERSION=1.21.1
@@ -23,7 +24,7 @@ color 0a
 echo =============================================
 echo Minecraft NeoForge Server Setup for Windows
 echo Version: %MC_VERSION% with NeoForge %NEOFORGE_VERSION%
-echo Mods: Create, Pixelmon, ModernFix + Bedrock Support
+echo Mods: Create, Pixelmon, ModernFix, WorldEdit, JEI
 echo =============================================
 echo.
 
@@ -33,10 +34,13 @@ for /f "tokens=2 delims=:" %%A in ('ipconfig ^| findstr "IPv4"') do (
 )
 if "%LOCAL_IP%"=="" set LOCAL_IP=127.0.0.1
 
-echo ===== SERVER ACCESS =====
-echo Java:    %LOCAL_IP%:25565
-echo Bedrock: %LOCAL_IP%:19132
-echo ========================
+echo ===== XBOX CONNECTION GUIDE =====
+echo 1. On your PHONE:
+echo    - Connect to %LOCAL_IP%:19132
+echo    - Keep game running in background
+echo 2. On XBOX:
+echo    - Join via "Friends" tab
+echo =================================
 echo.
 
 :: Install Chocolatey if missing
@@ -87,13 +91,16 @@ echo - Pixelmon
 curl -L -o "%JAVA_MODS_DIR%\Pixelmon-neoforge.jar" "https://www.curseforge.com/api/v1/mods/389487/files/6701628/download" --progress-bar
 echo - ModernFix
 curl -L -o "%JAVA_MODS_DIR%\modernfix.jar" "https://www.curseforge.com/api/v1/mods/790626/files/6609557/download" --progress-bar
+echo - WorldEdit
+curl -L -o "%JAVA_MODS_DIR%\Worldedit-neoforge.jar" "https://cdn.modrinth.com/data/1u6JkXh5/versions/WTAFvuRx/worldedit-mod-7.3.8.jar" --progress-bar
+echo - JEI
+curl -L -o "%JAVA_MODS_DIR%\jei-neoforge.jar" "https://cdn.modrinth.com/data/u6dRKJwZ/versions/TxS03dKM/jei-1.21.1-neoforge-19.21.0.247.jar" --progress-bar
 echo - Geyser (for Bedrock)
 curl -L -o "%JAVA_MODS_DIR%\geyser-neoforge.jar" "https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/neoforge" --progress-bar
-echo - Floodgate (for Xbox via phone)
+echo - Floodgate (for Xbox)
 curl -L -o "%JAVA_MODS_DIR%\floodgate-neoforge.jar" "https://cdn.modrinth.com/data/bWrNNfkb/versions/ByP7SHZE/Floodgate-Neoforge-2.2.4-b36.jar" --progress-bar
 
 :: Configure Geyser for phone bridging
-mkdir config\geyser >nul 2>&1
 (
 echo {
 echo   "bedrock": {
@@ -111,7 +118,6 @@ echo }
 ) > config\geyser\config.yml
 
 :: Create Docker config
-echo Creating Docker configuration...
 (
 echo FROM eclipse-temurin:17-jre-jammy
 echo.
@@ -160,34 +166,32 @@ echo       memlock: -1
 echo       nofile: 65535
 ) > docker-compose.yml
 
-:: Create Xbox connection guide
+:: Create management scripts
 (
-echo Xbox Connection Guide
-echo ====================
-echo 1. On your MOBILE PHONE:
-echo    - Connect to: %LOCAL_IP%:19132
-echo    - Keep the game RUNNING IN BACKGROUND
-echo 2. On your XBOX:
-echo    - Go to "Friends" tab
-echo    - Join your mobile player's game
+echo @echo off
+echo :: Backup Script - Keeps 7 days of backups
+echo set BACKUP_DIR=backups
+echo set DAYS_TO_KEEP=7
 echo.
-echo Troubleshooting:
-echo - Ensure phone and Xbox are on same network
-echo - Mobile app must stay open during play
-) > XBOX_GUIDE.txt
+echo mkdir %%BACKUP_DIR%% >nul 2>&1
+echo for /f "tokens=2 delims==" %%a in ('wmic os get localdatetime /value') do set TIMESTAMP=%%a
+echo set TIMESTAMP=%%TIMESTAMP:~0,8%%_%%TIMESTAMP:~8,6%%
+echo.
+echo tar -czf "%%BACKUP_DIR%%\world_%%TIMESTAMP%%.tar.gz" world config mods
+echo forfiles /p "%%BACKUP_DIR%%" /m "world_*.tar.gz" /d -%%DAYS_TO_KEEP%% /c "cmd /c del @path"
+) > scripts\backup.bat
 
 :: Completion
 echo.
 echo =============================================
 echo SETUP COMPLETE!
 echo.
-echo Mods Installed:
-echo - Create
-echo - Pixelmon
-echo - ModernFix
-echo - Geyser/Floodgate (Bedrock)
+echo To start server:
+echo   1. Open Docker Desktop
+echo   2. Run: docker-compose up -d
 echo.
-echo Xbox players: Follow instructions in XBOX_GUIDE.txt
-echo Start server: docker-compose up -d
+echo Xbox players must:
+echo   1. Connect via phone first (see instructions above)
+echo   2. Join through Xbox Friends tab
 echo =============================================
 pause
