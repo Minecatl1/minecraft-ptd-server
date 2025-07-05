@@ -90,6 +90,7 @@ download_java_mods() {
     ["connecter-extras.jar"]="https://cdn.modrinth.com/data/FYpiwiBR/versions/dgLCqZyo/ConnectorExtras-1.12.1%2B1.21.1.jar"
     ["chest-cavity.jar"]="https://cdn.modrinth.com/data/eo1wLeXR/versions/rtvJdDF9/chestcavity-2.17.1.jar"
     ["cloth-config.jar"]="https://cdn.modrinth.com/data/9s6osm5g/versions/izKINKFg/cloth-config-15.0.140-neoforge.jar"
+    ["forge-api.jar"]="https://cdn.modrinth.com/data/P7dR8mSH/versions/VP2WqQA9/fabric-api-0.116.2%2B1.21.1.jar"
   )
 
   for mod in "${!MOD_URLS[@]}"; do
