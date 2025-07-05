@@ -88,6 +88,7 @@ download_java_mods() {
     ["ftn-converter.jar"]="https://cdn.modrinth.com/data/u58R1TMW/versions/KrmWHpgS/connector-2.0.0-beta.8%2B1.21.1-full.jar"
     ["forged-fabric-api.jar"]="https://github.com/Sinytra/ForgifiedFabricAPI/releases/download/0.115.6%2B2.1.1%2B1.21.1/forgified-fabric-api-0.115.6+2.1.1+1.21.1.jar"
     ["connecter-extras.jar"]="https://cdn.modrinth.com/data/FYpiwiBR/versions/dgLCqZyo/ConnectorExtras-1.12.1%2B1.21.1.jar"
+    ["chest-cavity.jar"]="https://cdn.modrinth.com/data/eo1wLeXR/versions/rtvJdDF9/chestcavity-2.17.1.jar"
   )
 
   for mod in "${!MOD_URLS[@]}"; do
