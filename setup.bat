@@ -1,6 +1,6 @@
 @echo off
 SETLOCAL EnableDelayedExpansion
-title Minecraft Server Setup Manager
+title Family Minecraft Server Setup Manager
 color 0A
 
 :: Configuration
@@ -14,7 +14,7 @@ set "current_step=0"
 
 :: Create Server Management folder
 set "desktop=%USERPROFILE%\Desktop"
-set "server_dir=%desktop%\Server Management"
+set "server_dir=%desktop%\Family Server Management"
 mkdir "%server_dir%" 2>nul
 cd /d "%server_dir%"
 
@@ -50,8 +50,8 @@ echo.
 goto :eof
 
 :: Main execution
-echo === Minecraft %MC_VERSION% Server Setup ===
-echo Creating Server Management folder at:
+echo === Family Minecraft %MC_VERSION% Server Setup ===
+echo Creating Family Server Management folder at:
 echo "%server_dir%"
 echo Please wait while we set up your server...
 echo This may take 10-25 minutes depending on your internet speed
@@ -101,7 +101,7 @@ echo Connect at:
 echo - Java:    your-ip:25565
 echo - Bedrock: your-ip:19132
 echo - Voice:   your-ip:24454 (if enabled)
-
+echo Also if you want console users to join use an phone and join the server there then tell the console users to friend the minecraft account so they can join
 :: Create management scripts
 call :create_management_scripts
 
