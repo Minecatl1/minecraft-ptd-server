@@ -134,7 +134,7 @@ HEALTHCHECK --interval=30s --timeout=5s \\
 
 EXPOSE 25565/tcp 19132/udp 24454/udp
 
-CMD ["sh", "-c", "java -Xms\${MIN_RAM:-4G} -Xmx\${MAX_RAM:-8G} \\
+CMD ["sh", "-c", "java -Xms\${MIN_RAM:-4G} -Xmx\${MAX_RAM:-16G} \\
 -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions \\
 -XX:MaxGCPauseMillis=100 -XX:+ParallelRefProcEnabled \\
 -jar ${SERVER_JAR} nogui"]
@@ -151,7 +151,7 @@ services:
     restart: unless-stopped
     environment:
       - MIN_RAM=6G
-      - MAX_RAM=10G
+      - MAX_RAM=16G
       - EULA=TRUE
     volumes:
       - ./world:/server/world
