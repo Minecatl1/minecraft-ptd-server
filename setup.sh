@@ -86,6 +86,7 @@ download_java_mods() {
     ["modernfix.jar"]="https://www.curseforge.com/api/v1/mods/790626/files/6609557/download"
     ["Voicechat-neoforge.jar"]="https://cdn.modrinth.com/data/9eGKb6K1/versions/DtuPswKw/voicechat-neoforge-1.21.6-2.5.32.jar" # NeoForge compatible version
     ["ftn-converter"]="https://cdn.modrinth.com/data/u58R1TMW/versions/KrmWHpgS/connector-2.0.0-beta.8%2B1.21.1-full.jar"
+    ["forged-fabric-api.jar"]="https://github.com/Sinytra/ForgifiedFabricAPI/releases/download/0.115.6%2B2.1.1%2B1.21.1/forgified-fabric-api-0.115.6+2.1.1+1.21.1.jar"
   )
 
   for mod in "${!MOD_URLS[@]}"; do
