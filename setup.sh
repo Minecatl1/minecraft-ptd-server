@@ -14,7 +14,7 @@ SERVER_JAR="server.jar"
 CREATE_VERSION="0.7.0"
 GEYSER_VERSION="2.2.3"
 FLOODGATE_VERSION="2.2.4"
-JAVA_MODS_DIR="mods/java"
+JAVA_MODS_DIR="mods/"
 BEDROCK_MODS_DIR="mods/bedrock"
 
 # Check root
@@ -79,18 +79,12 @@ download_java_mods() {
   declare -A MOD_URLS=(
     ["create-neoforge.jar"]="https://www.curseforge.com/api/v1/mods/328085/files/6641610/download"
     ["jei-neoforge.jar"]="https://cdn.modrinth.com/data/u6dRKJwZ/versions/TxS03dKM/jei-1.21.1-neoforge-19.21.0.247.jar"
-    ["geyser-neoforge.jar"]="https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/neoforge"
+    ["geyser-neoforge.jar"]="https://cdn.modrinth.com/data/wKkoqHrH/versions/3rUDJIS0/geyser-neoforge-Geyser-Neoforge-2.4.4-b705.jar"
     ["floodgate-neoforge.jar"]="https://cdn.modrinth.com/data/bWrNNfkb/versions/ByP7SHZE/Floodgate-Neoforge-2.2.4-b36.jar"
-    ["Worldedit-neoforge.jar"]="https://cdn.modrinth.com/data/1u6JkXh5/versions/WTAFvuRx/worldedit-mod-7.3.8.jar"
-    ["Pixelmon-neoforge.jar"]="https://www.curseforge.com/api/v1/mods/389487/files/6701628/download"
+    ["Pixelmon-neoforge.jar"]="https://cdn.modrinth.com/data/59ZceYlU/versions/ekKbNviQ/Pixelmon-1.21.1-9.3.5-universal.jar"
     ["modernfix.jar"]="https://www.curseforge.com/api/v1/mods/790626/files/6609557/download"
-    ["Voicechat-neoforge.jar"]="https://cdn.modrinth.com/data/9eGKb6K1/versions/DtuPswKw/voicechat-neoforge-1.21.6-2.5.32.jar" # NeoForge compatible version
-    ["ftn-converter.jar"]="https://cdn.modrinth.com/data/u58R1TMW/versions/KrmWHpgS/connector-2.0.0-beta.8%2B1.21.1-full.jar"
     ["forged-fabric-api.jar"]="https://github.com/Sinytra/ForgifiedFabricAPI/releases/download/0.115.6%2B2.1.1%2B1.21.1/forgified-fabric-api-0.115.6+2.1.1+1.21.1.jar"
-    ["connecter-extras.jar"]="https://cdn.modrinth.com/data/FYpiwiBR/versions/dgLCqZyo/ConnectorExtras-1.12.1%2B1.21.1.jar"
-    ["chest-cavity.jar"]="https://cdn.modrinth.com/data/eo1wLeXR/versions/rtvJdDF9/chestcavity-2.17.1.jar"
     ["cloth-config.jar"]="https://cdn.modrinth.com/data/9s6osm5g/versions/izKINKFg/cloth-config-15.0.140-neoforge.jar"
-    ["forge-api.jar"]="https://cdn.modrinth.com/data/P7dR8mSH/versions/VP2WqQA9/fabric-api-0.116.2%2B1.21.1.jar"
   )
 
   for mod in "${!MOD_URLS[@]}"; do
