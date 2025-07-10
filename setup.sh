@@ -9,7 +9,7 @@ NC='\033[0m' # No Color
 
 # Configuration
 MC_VERSION="1.21.1"
-NEOFORGE_VERSION="21.1.186"
+NEOFORGE_VERSION="21.1.172"
 SERVER_JAR="server.jar"
 CREATE_VERSION="0.7.0"
 GEYSER_VERSION="2.2.3"
@@ -83,7 +83,7 @@ download_java_mods() {
     ["floodgate-neoforge.jar"]="https://cdn.modrinth.com/data/bWrNNfkb/versions/ByP7SHZE/Floodgate-Neoforge-2.2.4-b36.jar"
     ["Pixelmon-neoforge.jar"]="https://cdn.modrinth.com/data/59ZceYlU/versions/ekKbNviQ/Pixelmon-1.21.1-9.3.5-universal.jar"
     ["modernfix.jar"]="https://www.curseforge.com/api/v1/mods/790626/files/6609557/download"
-    ["forged-fabric-api.jar"]="https://github.com/Sinytra/ForgifiedFabricAPI/releases/download/0.115.6%2B2.1.1%2B1.21.1/forgified-fabric-api-0.115.6+2.1.1+1.21.1.jar"
+    ["forged-fabric-api.jar"]="https://cdn.modrinth.com/data/Aqlf1Shp/versions/vQbH2z4u/forgified-fabric-api-0.115.6%2B2.1.1%2B1.21.1.jar"
     ["cloth-config.jar"]="https://cdn.modrinth.com/data/9s6osm5g/versions/izKINKFg/cloth-config-15.0.140-neoforge.jar"
   )
 
