@@ -26,7 +26,7 @@ if %errorLevel% neq 0 (
 
 :: Configuration
 set MC_VERSION=1.21.1
-set NEOFORGE_VERSION=21.1.186
+set NEOFORGE_VERSION=21.1.172
 set SERVER_JAR=server.jar
 set JAVA_MODS_DIR=mods\
 set BEDROCK_MODS_DIR=mods\bedrock
@@ -135,7 +135,7 @@ set "MOD_LIST=create-neoforge.jar https://www.curseforge.com/api/v1/mods/328085/
 jei-neoforge.jar https://cdn.modrinth.com/data/u6dRKJwZ/versions/TxS03dKM/jei-1.21.1-neoforge-19.21.0.247.jar
 geyser-neoforge.jar https://cdn.modrinth.com/data/wKkoqHrH/versions/3rUDJIS0/geyser-neoforge-Geyser-Neoforge-2.4.4-b705.jar
 floodgate-neoforge.jar https://cdn.modrinth.com/data/bWrNNfkb/versions/ByP7SHZE/Floodgate-Neoforge-2.2.4-b36.jar
-Pixelmon-neoforge.jar https://cdn.modrinth.com/data/59ZceYlU/versions/ekKbNviQ/Pixelmon-1.21.1-9.3.5-universal.jar
+Pixelmon-neoforge.jar https://dl.reforged.gg/4kei6dH
 modernfix.jar https://www.curseforge.com/api/v1/mods/790626/files/6609557/download
 forged-fabric-api.jar https://github.com/Sinytra/ForgifiedFabricAPI/releases/download/0.115.6%%2B2.1.1%%2B1.21.1/forgified-fabric-api-0.115.6+2.1.1+1.21.1.jar
 cloth-config.jar https://cdn.modrinth.com/data/9s6osm5g/versions/izKINKFg/cloth-config-15.0.140-neoforge.jar"
